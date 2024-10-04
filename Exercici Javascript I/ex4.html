@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensaje</title>
+</head>
+<body>
+    <input type="text" name="nombre" id="nombre">
+    <label for="nombre"></label>
+    <button type="submit" onclick="guardarNombre()">Guardar</button>
+    <div id="mensaje"></div>
+    <script>
+        function guardarNombre() {
+            var nombre = document.getElementById('nombre').value;
+            var mensaje = document.getElementById('mensaje');
+            mensaje.innerHTML = '<p>Tu nombre es: ' + nombre + '</p>';
+        }
+    </script>
+    
+</body>
+</html>
