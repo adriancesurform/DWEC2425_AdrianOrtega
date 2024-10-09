@@ -1,0 +1,36 @@
+<!-- Adrian Ortega Barranco -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercici 5</title>
+</head>
+
+<body>
+    <label for="text1">Nombre:</label>
+    <input type="text" name="text1" id="text1">
+    <br>
+    <br>
+    <label for="edad1">Edad:</label>
+    <input type="number" name="edad1" id="edad1">
+    <br>
+    <br>
+    <button type="submit" onclick="result()">Enviar</button>
+
+    <script>
+
+        function result() {
+            var edad = document.getElementById("edad1").value;
+            var nombre = document.getElementById("text1").value;
+            if (edad <= 12) alert(nombre + " tiene " + edad + " años y es un niño/a.")
+            if (edad >= 13 && edad <= 17) alert(nombre + " tiene " + edad + " años y es un adolescente.")
+            if (edad >= 18 && edad <= 64) alert(nombre + " tiene " + edad + " años y es un trabajador.")
+            if (edad >= 65) alert(nombre + " tiene " + edad + " años y es un jubilado.")
+        }
+
+    </script>
+</body>
+
+</html>

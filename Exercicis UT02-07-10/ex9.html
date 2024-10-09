@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercici 9</title>
+</head>
+
+<body>
+    <script>
+        var letra;
+        var numero = 1;
+
+        do {
+            letra = prompt("Elige una letra: ");
+            if (letra == "s" || letra == "S") {
+                console.log("¡ENHORABUENA!");
+                console.log("Intento número: " + numero);
+                break;
+            } else {
+                console.log("No has tenido éxito. Vuelve a intentarlo.");
+                console.log("Intento número: " + numero);
+                numero++;
+            }
+        } while (numero <= 10);
+
+        if (numero > 10) console.log("Has fallado 10 veces. Fin del juego.");
+
+    </script>
+
+</body>
+
+</html>
