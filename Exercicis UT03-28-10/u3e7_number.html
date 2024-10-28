@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number</title>
+</head>
+<body>
+    <input type="number" name="number" id="number" placeholder="Introduce un numero:">
+    <button type="submit" onclick="result()">Submit</button>
+    <p id="resultado"></p>
+
+    <script>
+        
+        function result() {
+            const numero = Number(document.getElementById('number').value);
+            const resultado = document.getElementById('resultado');
+
+            const exponencial = numero.toExponential();
+            const cuatroDecimales = numero.toFixed(4);
+
+            resultado.textContent = `El valor exponencial es: ` + exponencial;
+            resultado.textContent += `El valor exponencial es: ` + cuatroDecimales;
+
+        }
+    </script>
+</body>
+</html>
