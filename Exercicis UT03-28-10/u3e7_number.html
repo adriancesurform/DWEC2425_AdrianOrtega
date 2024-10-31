@@ -18,9 +18,17 @@
 
             const exponencial = numero.toExponential();
             const cuatroDecimales = numero.toFixed(4);
+            const enBinario = numero.toString(2);
+            const enOctal = numero.toString(8);
+            const enHexa = "0x" + numero.toString(16);
 
-            resultado.textContent = `El valor exponencial es: ` + exponencial;
-            resultado.textContent += `El valor exponencial es: ` + cuatroDecimales;
+            resultado.innerHTML = `El valor exponencial es: ` + exponencial + '<br>';
+            resultado.innerHTML +=`El valor con 4 decimales es: ` + cuatroDecimales + '<br>';
+            resultado.innerHTML +=`El valor en binario es: ` + enBinario + '<br>';
+            resultado.innerHTML +=`El valor en octal es: ` + enOctal + '<br>';
+            resultado.innerHTML += `El valor en octal es: ` + enHexa;
+
+
 
         }
     </script>
