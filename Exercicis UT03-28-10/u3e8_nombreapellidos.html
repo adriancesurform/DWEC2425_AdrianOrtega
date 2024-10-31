@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>U3 - E8</title>
+</head>
+<body>
+    <input type="text" name="text" id="nombre" placeholder="Introduce tu nombre:"><br><br>
+    <input type="text" name="text" id="apellido1" placeholder="Introduce tu primer apellido:"><br><br>
+    <input type="text" name="text" id="apellido2" placeholder="Introduce tu segundo apellido:"><br><br>
+
+    <button type="submit" onclick="result()">Submit</button>
+    <p id="resultado"></p>
+</body>
+
+<script>
+    function result() {
+        const nombre = (document.getElementById('nombre')).value.replace(/\s/g, "");
+        const apellido1 = (document.getElementById('apellido1')).value.replace(/\s/g, "");
+        const apellido2 = (document.getElementById('apellido2')).value.replace(/\s/g, "");
+
+        const apellidos = apellido1 + ' ' + apellido2;
+
+        const resultado = document.getElementById('resultado');
+
+        resultado.innerHTML = 'El tamaño del nombre y apellidos es: ' +  (nombre.length + apellido1.length + apellido2.length) + '<br>';
+        resultado.innerHTML += 'Cadena en mayúsculas: ' + (nombre + ' ' + apellidos).toUpperCase() + '<br>';
+        resultado.innerHTML += 'Cadena en minúsculas: ' + (nombre + ' ' + apellidos).toLowerCase() + '<br>';
+
+    }
+</script>
+</html>
