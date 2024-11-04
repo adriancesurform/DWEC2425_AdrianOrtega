@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>U3 - I.Codi</title>
+</head>
+
+ <!-- Antes de ejecutarlo y analizando el codigo veo un array con numeros del 1 al 10 y la imprimimos sumando todos los
+      elementos de esta llamando a la funcion 'funcio_usuari', la cual tiene un return con un array.reduce. Quiero suponer
+      que .reduce es una suma reiterada, es decir, coge un valor, lo guarda, coge el siguiente, lo suma, lo reescribe en el
+      otro valor, y asi succesivamente hasta que se acaban los valores de la array.-->
+
+<!-- El resultado es 55, asi que estaba mas o menos en lo cierto, pero aun asi, no entiendo el 0 al final de esa función. 
+     Acc y elem se pueden cambiar al nombre que queramos, o son variables definidas por defecto??-->
+
+<!-- La expresión array.reduce((acc, elem) => acc + elem, 0) es un uso del método reduce en JavaScript, que se utiliza para 
+     aplicar una función a cada elemento de un array y acumular un solo valor. Aquí está el desglose de su funcionamiento:
+     
+     array: Es el array sobre el cual se está aplicando el método reduce.
+
+     reduce: Este método toma dos argumentos: una función y un valor inicial.
+
+     La función: (acc, elem) => acc + elem es una función de flecha que se ejecuta en cada elemento del array.
+
+     acc: es el acumulador que mantiene el resultado de la reducción en cada iteración.
+     elem: es el elemento actual del array que se está procesando.
+     0: Es el valor inicial del acumulador (acc). Esto significa que la primera vez que se ejecuta la función, acc comenzará 
+     en 0.
+
+     ¿Qué hace en conjunto?
+     La expresión acumula la suma de todos los elementos del array. Al final, reduce devuelve el total de la suma de todos 
+     los elementos. Por ejemplo, si array es [1, 2, 3, 4], el resultado de array.reduce((acc, elem) => acc + elem, 0) sería 10, 
+     que es la suma de todos los elementos.-->
+
+
+<!-- Tenemos un array con valores del 1 al 10. Imprimimos el resultado de 'membres', que es donde guardamos la array con la 
+     funcion 'funcio_usuari'. 'funcio_usuari' tiene la funcion de devolvernos con un array.reduce la acumulación de la suma de 
+     todos los elementos de la array. -->
+
+<!-- Podemos validar la array y que compruebe que solo sean numeros. Hacer la funcion mas generica y que acepte negativos. 
+     Implementar comprobaciones por si esta vacía. Usar valores inicializados   -->
+
+
+<body>
+    <script>
+        function funcio_usuari(array) {
+            return array.reduce((acc, elem) => acc + elem, 0);
+        }
+
+        const membres = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        console.log("El resultat de la funció és: " + funcio_usuari(membres));
+    </script>
+</body>
+
+</html>
