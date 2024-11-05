@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>U3 - E1</title>
+</head>
+
+<body>
+    <script>
+        let guardaDNI = [];
+
+        function resultado() {
+
+            const comprobar = prompt("Escribe tu DNI. Si quieres cerrar y ver los guardados pon -1:");
+
+            if (comprobar == "-1") {
+
+                clearInterval(tiempoEspera);
+
+                let letras = "";
+                guardaDNI.forEach(dni => {
+                    const letra = dni[dni.length - 1];
+                    letras += letra;
+                });
+                
+                alert("Letras de los DNI guardados: "  + letras);
+
+            } else {
+
+                const dniRegex = /^\d{8}[A-Z]$/;
+                const match = comprobar.match(dniRegex);
+
+                if (match) {
+                    alert("El DNI es válido.");
+                    guardaDNI.push(comprobar);
+                } else {
+                    alert("DNI inválido. Vuelve a intentarlo.");
+                }
+            }
+        }
+
+        let tiempoEspera = setInterval(resultado, 10000);   
+        resultado();
+    </script>
+</body>
+
+</html>
