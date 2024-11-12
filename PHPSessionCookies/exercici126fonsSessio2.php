@@ -13,7 +13,11 @@ if (isset($_SESSION['color_fons'])) {
 if (isset($_GET['buidar_sessio']) && $_GET['buidar_sessio'] == '1') {
     session_unset();  // Eliminar totes les variables de sessió
     session_destroy(); // Destruir la sessió
-    header("Location: exercici124fons.php"); // Tornar a la pàgina anterior
+
+    // Redirigir i refrescar pàgina amb color per defecte
+    header("Cache-Control: no-cache, must-revalidate");
+    header("Location: exercici124fons.php");
+    $color_fons = 'none';
     exit();
 }
 ?>
@@ -34,7 +38,7 @@ if (isset($_GET['buidar_sessio']) && $_GET['buidar_sessio'] == '1') {
 <p><a href="exercici125fonsSessio1.php">Torna a la pàgina anterior</a></p>
 
 <!-- Enllaç per buidar la sessió i tornar a la pàgina anterior -->
-<p><a href="ex5.php?buidar_sessio=1">Buidar la sessió i tornar a la pàgina anterior</a></p>
+<p><a href="exercici125fonsSessio1.php?buidar_sessio=1">Buidar la sessió i tornar a la pàgina anterior</a></p>
 
 </body>
 </html>
