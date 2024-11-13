@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div {
+        display: block;
+        width: 50%;
+    }
+
+    button {
+        padding: 5px 5px;
+        margin: 2px;
+        color: black;
+        background-color: transparent;
+        border: 1px solid black;
+        border-radius: 10px;
+    }
+
+    button:hover {
+        background-color: black;
+        color: white;
+    }
+
+    #resultado {
+        width:fit-content;
+        height: fit-content;
+        border: 1px solid black;
+        padding: 3px;
+    }
+</style>
+<body>
+    <div>
+        <button onclick="numeroPaises()">Número de países</button>
+        <button onclick="mostrarPaises()">Mostrar países</button>
+        <button onclick="muestraReversePaises()">Mostrar países invertidos</button>
+        <button onclick="ordenaPaisesAlph()">Ordenar países alfabéticamente</button>
+        <button onclick="añadePais()">Añadir país al principio</button>
+        <button onclick="añadePaisFinal()">Añadir país al final</button>
+        <button onclick="borrarPais()">Borrar el primer país</button>
+        <button onclick="borrarUltimoPais()">Borrar el último país</button>
+        <button onclick="mostrarPositionUser()">Elegir posicion de país</button>
+        <button onclick="mostrarPaisUser()">Elegir nombre del país</button>
+        <button onclick="intervaloPais()">Elegir un intervalo</button>
+    </div>
+
+    <p id="resultado"></p>
+    <script src="arrays.js"></script>
+</body>
+</html>

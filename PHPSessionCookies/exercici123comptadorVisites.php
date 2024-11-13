@@ -16,6 +16,6 @@ if (isset($_POST['reiniciar'])) {
 }
 ?>
 
-<form method="post">
+<form method="POST">
     <input type="submit" name="reiniciar" value="Reiniciar contador">
 </form>
