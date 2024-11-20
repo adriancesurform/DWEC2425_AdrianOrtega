@@ -33,7 +33,6 @@
         padding: 40px;
         border-radius: 20px;
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-        backdrop-filter: blur(10px);
         border: 1px solid rgba(0, 0, 0, 0.1);
     }
 
@@ -138,9 +137,9 @@
 </style>
 
 <body>
-    <form id="form" method="get" action="formulario.php">
-        <label for="name">
-            <input type="text" id="name" name="name" placeholder="Introduce tu nombre:"
+    <form id="form" method="get" action="">
+        <label for="nombre">
+            <input type="text" id="nombre" name="nombre" placeholder="Introduce tu nombre:"
                 pattern="^[a-zA-ZáéíóúÁÉÍÓÚüÜ\s]{2,50}$"
                 title="El nombre debe tener entre 2 y 50 caracteres, solo letras y espacios">
         </label>
@@ -159,41 +158,32 @@
     <div id="result"></div>
 
     <script type="text/javascript">
-        var resultadoDiv = document.getElementById('result');
+        document.getElementById('form').addEventListener('submit', function (e) {
+            e.preventDefault();
 
-        function getName() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const name = urlParams.get('name');
-            return name ? name : 'No se ha proporcionado el nombre';
-        }
+            const nombre = document.getElementById('nombre').value;
+            const dni = document.getElementById('dni').value;
+            const edad = document.getElementById('edad').value;
 
-        function getDni() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const dni = urlParams.get('dni');
-            return dni ? dni : 'No se ha proporcionado el Dni';
-        }
-
-        function getEdad() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const edad = urlParams.get('edad');
-            return edad ? edad : 'No se ha proporcionado la edad';
-        }
-
-        class Persona {
-            constructor(nombre, dni, edad) {
-                this.nombre = getName();
-                this.dni = getDni();
-                this.edad = getEdad();
-
+            class Persona {
+                constructor(nombre, dni, edad) {
+                    this.nombre = nombre;
+                    this.dni = dni;
+                    this.edad = edad;
+                }
             }
-        }
-        const persona = new Persona();
+            const persona = new Persona(nombre, dni, edad);
 
-        function enviarDatos() {
-            const url = `formulario.php?name=${encodeURIComponent(persona.nombre)}&dni=${encodeURIComponent(persona.dni)}&edad=${encodeURIComponent(persona.edad)}`;
-        }
+            const resultadoDiv = document.getElementById('result');
+            resultadoDiv.style.display = 'block';
+            resultadoDiv.innerText = `Nombre: ${persona.nombre}, DNI: ${persona.dni}, Edad: ${persona.edad}`;
 
-        enviarDatos();
+            const url = new URL('formulario.php', window.location.href);
+            url.searchParams.append('nombre', persona.nombre);
+            url.searchParams.append('dni', persona.dni);
+            url.searchParams.append('edad', persona.edad);
+            console.log('URL construida:', url.toString());
+        });
     </script>
 </body>
 
