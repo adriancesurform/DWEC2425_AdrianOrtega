@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Usando GET</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Arial', sans-serif;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        overflow: hidden;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: linear-gradient(135deg, #ad9aff, #d9adff);
+        width: 100%;
+        max-width: 450px;
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        font-size: 28px;
+        color: #333;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    label {
+        width: 100%;
+        margin: 12px 0;
+        font-size: 16px;
+        color: #333;
+        text-align: left;
+        font-weight: 500;
+    }
+
+    input {
+        width: 100%;
+        padding: 14px;
+        font-size: 16px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color: #f9f9f9;
+        margin-top: 6px;
+        transition: all 0.3s ease;
+        outline: none;
+    }
+
+    input:focus {
+        border-color: #826aeb;
+        background-color: #fff;
+        box-shadow: 0 0 10px #826aeb;
+    }
+
+    button {
+        width: 100%;
+        padding: 14px;
+        font-size: 18px;
+        border: none;
+        border-radius: 8px;
+        background-color: #826aeb;
+        color: white;
+        cursor: pointer;
+        margin-top: 20px;
+        transition: all 0.3s ease;
+    }
+
+    button:hover {
+        background-color: #9765e3;
+        transform: translateY(-2px);
+    }
+
+    button:active {
+        background-color: #826aeb;
+        transform: translateY(2px);
+    }
+
+    button:focus {
+        outline: none;
+    }
+
+    .form-group {
+        width: 100%;
+    }
+
+    .form-group:last-of-type {
+        margin-bottom: 20px;
+    }
+
+    .form-footer {
+        font-size: 14px;
+        color: #666;
+        margin-top: 10px;
+    }
+
+    .form-footer a {
+        color: #4c6ef5;
+        text-decoration: none;
+    }
+
+    .form-footer a:hover {
+        text-decoration: underline;
+    }
+
+    #result {
+        margin-top: 20px;
+        font-size: 16px;
+        color: #333;
+        background-color: #fff;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: max-content;
+        display: none;
+        margin-left: 5%;
+    }
+</style>
+
+<body>
+    <form id="form" method="get" action="formulario.php">
+        <label for="name">
+            <input type="text" id="name" name="name" placeholder="Introduce tu nombre:"
+                pattern="^[a-zA-ZáéíóúÁÉÍÓÚüÜ\s]{2,50}$"
+                title="El nombre debe tener entre 2 y 50 caracteres, solo letras y espacios">
+        </label>
+        <label for="dni">
+            <input type="text" id="dni" name="dni" placeholder="Introduce tu DNI:" pattern="^\d{8}[A-Za-z]$"
+                title="El DNI debe ser de 8 dígitos seguidos de una letra">
+        </label>
+        <label for="edad">
+            <input type="number" id="edad" name="edad" placeholder="Introduce tu edad" min="18" max="120"
+                title="La edad debe estar entre 18 y 120 años">
+        </label>
+        <button type="submit">Enviar</button>
+    </form>
+
+
+    <div id="result"></div>
+
+    <script type="text/javascript">
+        var resultadoDiv = document.getElementById('result');
+
+        function getName() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const name = urlParams.get('name');
+            return name ? name : 'No se ha proporcionado el nombre';
+        }
+
+        function getDni() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const dni = urlParams.get('dni');
+            return dni ? dni : 'No se ha proporcionado el Dni';
+        }
+
+        function getEdad() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const edad = urlParams.get('edad');
+            return edad ? edad : 'No se ha proporcionado la edad';
+        }
+
+        class Persona {
+            constructor(nombre, dni, edad) {
+                this.nombre = getName();
+                this.dni = getDni();
+                this.edad = getEdad();
+
+            }
+        }
+        const persona = new Persona();
+
+        function enviarDatos() {
+            const url = `formulario.php?name=${encodeURIComponent(persona.nombre)}&dni=${encodeURIComponent(persona.dni)}&edad=${encodeURIComponent(persona.edad)}`;
+        }
+
+        enviarDatos();
+    </script>
+</body>
+
+</html>
