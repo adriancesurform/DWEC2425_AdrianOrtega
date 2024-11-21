@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        
+    </form>
+    <script type="text/javascript">
+
+            const servidor = "www.pep.com";
+            const pathFichero = "/modulo/23";
+            const nombreFichero = "tofol.php";
+
+            const nombre = "biel";
+            const edad = 23;
+            const address = "carrer louis,23";
+
+            const url = new URL(servidor+pathFichero+nombreFichero, window.location.href);
+            
+            url.searchParams.append('nombre', nombre);
+            url.searchParams.append('edad', edad);
+            url.searchParams.append('address', address);
+            console.log(url);
+        
+    </script>
+</body>
+</html>
