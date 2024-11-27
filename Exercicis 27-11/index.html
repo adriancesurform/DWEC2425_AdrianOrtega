@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>U4E4 - OBJETOS</title>
+</head>
+<style>
+    input,
+    button,
+    select {
+        padding: 5px;
+        width: 10%;
+    }
+</style>
+
+<body>
+    <form id="form" style="display: block;">
+        <input type="text" name="nombre" id="nombre" placeholder="Nombre del disco:" required>
+        <input type="text" name="grupo" id="grupo" placeholder="Nombre del grupo:" required>
+        <input type="number" name="año" id="año" max="2024" placeholder="Año de publicación" required>
+        <select name="estilo" id="estilo" required>
+            <option value="" selected disabled>Selecciona un estilo:</option>
+            <option value="rock">Rock</option>
+            <option value="pop">Pop</option>
+            <option value="punk">Punk</option>
+            <option value="indie">Indie</option>
+        </select>
+        <button>Enviar</button>
+    </form><br>
+
+    <button onclick="mostrarInfo()">Ver info</button>
+    <div id="infoDisco"></div>
+    <br>
+
+    <button onclick="mostrarCampoEstanteria()">Cambiar estanteria</button><br><br>
+    <div id="divEstanteria" style="display: none;">
+        <input type="number" name="estanteria" id="estanteria" max="20" min="1"
+            placeholder="Introduce la nueva estantería:" required>
+        <button onclick="cambiaEstanteria()">Enviar</button>
+    </div><br>
+
+    <button onclick="mostrarCampoPrestado()">Cambiar Prestado</button><br><br>
+    <div id="divPrestado" style="display: none;">
+        <select name="prestado" id="prestado">
+            <option value="false" selected>No</option>
+            <option value="true">Si</option>
+        </select>
+        <button onclick="cambiaPrestado()">Enviar</button>
+    </div>
+
+
+
+</body>
+<script type="text/javascript" src="disco.js"></script>
+
+</html>
