@@ -63,7 +63,6 @@ function cambiaEstanteria() {
     } else {
         alert('Por favor, introduce un número válido entre 1 y 20.');
     }
-    console.log(discos);
 }
 
 function cambiaPrestado() {
@@ -72,6 +71,5 @@ function cambiaPrestado() {
 
     discos[discos.length - 1].prestado = prestado;
     mostrarInfo();
-    console.log(discos);
 }
 

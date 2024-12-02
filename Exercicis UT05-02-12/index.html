@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo de Exámen</title>
+</head>
+<body>
+    <form id="formulario">
+        <label for="nombreAsistente">
+            <input type="text" name="nombreAsistente" id="nombreAsistente">
+        </label>
+        <label for="correoElectronico">
+            <input type="email" name="correoElectronico" id="correoElectronico">
+        </label>
+        <label for="fechaInscripcion">
+            <input type="date" name="fechaInscripcion" id="fechaInscripcion">
+        </label>
+        <button type="submit">Enviar</button>
+        <button type="reset">Reiniciar</button>
+    </form>
+    <br>
+    <div id="resultado" style="display: none;" >
+        <table id="tablaResultados" border="1" style="border-collapse: collapse; width: 30%;">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Correo Electrónico</th>
+                    <th>Fecha de Inscripción</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
