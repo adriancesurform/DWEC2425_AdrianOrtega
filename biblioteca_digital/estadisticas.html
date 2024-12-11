@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estadísticas - Biblioteca Digital</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav>
+        <h1>Biblioteca Digital</h1>
+        <ul>
+            <li><a href="registrar.html">Registrar Libro</a></li>
+            <li><a href="catalogo.html">Catálogo de Libros</a></li>
+            <li><a href="estadisticas.html">Estadísticas</a></li>
+        </ul>
+    </nav>
+
+    <section>
+        <h2>Estadísticas del Catálogo</h2>
+
+        <!-- Contenedor de estadísticas -->
+        <div id="estadisticas">
+            <p><strong>Total de Libros:</strong> <span id="total-libros">0</span></p>
+            <p><strong>Libros Disponibles:</strong> <span id="libros-disponibles">0</span></p>
+            <p><strong>Año más antiguo:</strong> <span id="anio-mas-antiguo">N/A</span></p>
+            <p><strong>Año más reciente:</strong> <span id="anio-mas-reciente">N/A</span></p>
+        </div>
+    </section>
+
+    <script src="js/gestorLibros.js" defer></script>
+    <script src="js/domUtils.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            actualizarEstadisticas();
+        });
+    </script>
+</body>
+</html>

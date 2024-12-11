@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Libros - Biblioteca Digital</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav>
+        <h1>Biblioteca Digital</h1>
+        <ul>
+            <li><a href="registrar.html">Registrar Libro</a></li>
+            <li><a href="catalogo.html">Catálogo de Libros</a></li>
+            <li><a href="estadisticas.html">Estadísticas</a></li>
+        </ul>
+    </nav>
+
+    <section>
+        <h2>Catálogo de Libros</h2>
+
+        <!-- Barra de búsqueda -->
+        <div id="busqueda">
+            <label for="buscar">Buscar:</label>
+            <input type="text" id="buscar" placeholder="Introduce título o autor">
+            <button id="botonBuscar">Buscar</button>
+        </div>
+
+        <!-- Botones de ordenación -->
+        <div id="ordenacion">
+            <button id="ordenarTitulo">Ordenar por Título</button>
+            <button id="ordenarAño">Ordenar por Año</button>
+        </div>
+
+        <!-- Tabla de libros -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Título</th>
+                    <th>Autor</th>
+                    <th>Año</th>
+                    <th>Estado</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+            <tbody id="tabla-cuerpo">
+                <!-- Aquí se añadirán las filas dinámicamente -->
+            </tbody>
+        </table>
+    </section>
+
+    <script src="js/gestorLibros.js" defer></script>
+    <script src="js/domUtils.js" defer></script>
+    <script src="js/libro.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            actualizarTabla(); // Llama a la función para llenar la tabla con los datos del catálogo
+        });
+    
+        // Vincular eventos para buscar y ordenar
+        document.getElementById("botonBuscar").addEventListener("click", () => {
+            const termino = document.getElementById("buscar").value;
+            buscarLibros(termino);
+        });
+    
+        document.getElementById("ordenarTitulo").addEventListener("click", () => {
+            ordenarLibros("titulo");
+        });
+    
+        document.getElementById("ordenarAño").addEventListener("click", () => {
+            ordenarLibros("año");
+        });
+    </script>
+    
+</body>
+</html>

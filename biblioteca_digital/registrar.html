@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de libros - Biblioteca Digital</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav>
+        <h1>Biblioteca Digital</h1>
+        <ul>
+            <li><a href="registrar.html">Registrar Libro</a></li>
+            <li><a href="catalogo.html">Catálogo de Libros</a></li>
+            <li><a href="estadisticas.html">Estadísticas</a></li>
+        </ul>
+    </nav>
+
+    <section>
+        <h2>Registrar un nuevo libro</h2>
+        <form id="formRegistro">
+            <label for="tituloLibro">Título del libro:</label>
+            <input type="text" name="tituloLibro" id="tituloLibro" required><br>
+
+            <label for="autorLibro">Nombre del autor:</label>
+            <input type="text" name="autorLibro" id="autorLibro" required><br>
+
+            <label for="añoPublicacion">Año de publicación:</label>
+            <input type="number" name="añoPublicacion" id="añoPublicacion" min="1800" max="2024" required><br>
+
+            <label for="estadoLibro">Estado del libro:</label>
+            <select name="estadoLibro" id="estadoLibro" required>
+                <option value="" selected disabled>Selecciona una opción</option>
+                <option value="Disponible">Disponible</option>
+                <option value="No disponible">No disponible</option>
+            </select><br>
+
+            <button type="submit">Crear</button>
+            <button type="reset">Vaciar</button>
+            <a href="index.html">Volver</a>
+        </form>
+    </section>
+
+    <script src="js/libro.js" defer></script>
+    <script src="js/gestorLibros.js" defer></script>
+    <script>
+        document.getElementById("formRegistro").addEventListener("submit", (e) => {
+            e.preventDefault();
+            
+            // Capturar datos del formulario
+            const titulo = document.getElementById("tituloLibro").value;
+            const autor = document.getElementById("autorLibro").value;
+            const año = parseInt(document.getElementById("añoPublicacion").value);
+            const estado = document.getElementById("estadoLibro").value;
+
+            // Crear nueva instancia de Libro
+            const nuevoLibro = new Libro(titulo, autor, año, estado);
+
+            // Agregar libro al catálogo
+            agregarLibro(nuevoLibro);
+
+            // Resetear el formulario
+            e.target.reset();
+        });
+    </script>
+</body>
+</html>

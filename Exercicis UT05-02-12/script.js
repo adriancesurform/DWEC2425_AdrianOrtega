@@ -15,7 +15,6 @@ document.getElementById('formulario').addEventListener('submit', function (e) {
         }
     }
 
-    
     var nuevo = new Entrada(nombreAsistente, correoElectronico, fechaInscripcion);
     entradas.push(nuevo);
     console.log(entradas);

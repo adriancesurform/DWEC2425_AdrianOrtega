@@ -14,25 +14,6 @@ function muestraReversePaises() {
     resultado.innerHTML = array.reverse().join(", ");
 }
 
-function ordenaPaisesAlph2() {
-    for (let i = 0; i < array.length - 1; i++) {
-        console.log(array[i]);
-    }
-}
-
-
-
-function ordenaPaisesAlph() {
-    for (let i = 0; i < array.length - 1; i++) {
-        for (let j = 0; j < array.length - i - 1; j++) {
-            if (comparaStrings((array[j], array[j + 1])) > 0) {
-                [array[j], array[j + 1]] = [array[j + 1], array[j]];
-            }
-        }
-    }
-    resultado.innerHTML = array.join(", ");
-}
-
 function añadePais() {
     let nuevoPais = prompt("Introduce el nombre del nuevo pais: ")
     array.unshift(nuevoPais);
